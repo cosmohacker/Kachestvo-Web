@@ -1,0 +1,42 @@
+﻿@model IEnumerable<KachestvoSlide.Models.sliderModel>
+@using KachestvoSlide.Models
+
+<link href="~/Contents/slide1/css/slider_1.css" rel="stylesheet" />
+
+<div class="content-width">
+    <div class="slideshow">
+        <!-- Slideshow Items -->
+        <div class="slideshow-items">
+
+            @foreach (var item in Model)
+            {
+                <div class="item">
+                    <div class="item-image-container">
+                        <img class="item-image" src="~/Contents/img/@item.Image" />
+                    </div>
+                    <!-- Staggered Header Elements -->
+                    <div class="item-header">
+                        <span class="vertical-part"><b>@item.Name</b></span>
+
+                    </div>
+                    <!-- Staggered Description Elements -->
+                    <div class="item-description">
+                        <span class="vertical-part">
+                            <b style="font-size:18px">@item.Description</b>
+                        </span>
+
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="controls">
+            <ul>
+                @for (int i = 0; i < ViewBag.Total_Page_Count; i++)
+                {
+                    <li class="control" data-index="@i"></li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="~/Contents/slide1/js/slider_1.js"></script>
